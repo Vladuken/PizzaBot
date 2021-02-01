@@ -23,7 +23,7 @@ class SmartPizzaBot(
 
         var currentPoint = initialPoint
         orderedPoints.forEach { destinationPoint ->
-            val moveList = moveStrategy.calculateMoveList(grid, currentPoint, destinationPoint)
+            val moveList = moveStrategy.calculateMoveList(currentPoint, destinationPoint)
 
             resultCommandList.addAll(moveList)
             resultCommandList.add(Command.DropPizza)

@@ -7,7 +7,7 @@ import kotlin.math.abs
 
 class XYMoveStrategy : IMoveStrategy {
 
-    override fun calculateMoveList(grid: Grid, startPoint: Point, endPoint: Point): List<Command> {
+    override fun calculateMoveList(startPoint: Point, endPoint: Point): List<Command> {
         val resultCommandList = mutableListOf<Command>()
 
         val xDiv = endPoint.x - startPoint.x
