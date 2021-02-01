@@ -1,9 +1,17 @@
+import com.vladuken.pizzabot.IPizzaBot
+import com.vladuken.pizzabot.SmartPizzaBot
 import com.vladuken.pizzabot.model.Grid
 import com.vladuken.pizzabot.model.Point
-import com.vladuken.pizzabot.model.SmartPizzaBot
+import com.vladuken.pizzabot.movestrategy.XYMoveStrategy
+import com.vladuken.pizzabot.order.DefaultPointOrderCalculator
 
 fun main(args: Array<String>) {
-    val bot = SmartPizzaBot()
+
+    val bot: IPizzaBot = SmartPizzaBot(
+        pointOrderCalculator = DefaultPointOrderCalculator(),
+        moveStrategy = XYMoveStrategy()
+    )
+
     val grid = Grid(5, 5)
 
     val resultPoints = listOf<Point>(
