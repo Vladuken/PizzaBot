@@ -6,10 +6,12 @@ import com.vladuken.pizzabot.model.Point
 class ArgsParser : IArgsParser {
 
     override fun parse(args: Array<String>): IArgsParser.Output {
-        if (args.isEmpty()) return IArgsParser.Output.EmptyError
-        val grid = parseGridString(args[0]) ?: return IArgsParser.Output.GridError
+        val splittedArgs = args.flatMap { it.split(" ") }.toTypedArray()
 
-        val parsedPoints = args
+        if (splittedArgs.isEmpty()) return IArgsParser.Output.EmptyError
+        val grid = parseGridString(splittedArgs[0]) ?: return IArgsParser.Output.GridError
+
+        val parsedPoints = splittedArgs
             .drop(1)
             .map { parsePointString(it) }
         if (parsedPoints.contains(null)) return IArgsParser.Output.PointsError
