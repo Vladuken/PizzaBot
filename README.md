@@ -1,12 +1,14 @@
 # PizzaBot
 
+![alt text](https://i1.sndcdn.com/artworks-000501693894-wnq8jo-t500x500.jpg)
+
 Kotlin Console application for calculating movement commands for PizzaBot.
 
 ## How to run:
 
 To run application: 
 ```
- ./gradlew run --args='5x5 (0,0) (1,3) (4,4) (4,2) (4,1)'
+./gradlew run --args='5x5 (0,0) (1,3) (4,4) (4,2) (4,1)'
 ```
 
 <p>First parameter - 5x5 - is Grid `width` x `height` parameters.</p>
@@ -55,3 +57,17 @@ To run tests:
 ```
 ./gradlew test
 ```
+
+### Run like a bot
+I've added small script to run app like 
+
+```
+./pizzabot "5x5 (1,2) (2,3)"
+```
+
+To run app like this you need to give permission to script (in app folder)
+
+```
+chmod 700 pizzabot
+```
+
