@@ -67,9 +67,24 @@ class ArgsParserTest {
 
     @Test
     fun testCorrectGridCorrectPoints() {
+        val argsArray = arrayOf("5x5", "(3,3)", "(5,5)")
+        val output = parser.parse(argsArray)
+        assertEquals(output, IArgsParser.Output.Success(Grid(5, 5), listOf(Point(3, 3), Point(5, 5))))
+    }
+
+    @Test
+    fun testCorrectGridOutOfBoundPoints() {
         val argsArray = arrayOf("5x5", "(3,3)", "(5,6)")
         val output = parser.parse(argsArray)
-        assertEquals(output, IArgsParser.Output.Success(Grid(5, 5), listOf(Point(3, 3), Point(5, 6))))
+        assertEquals(output, IArgsParser.Output.PointsOutOfBoundsError)
+    }
+
+
+    @Test
+    fun testCorrectGridOutOfBoundPointsNegative() {
+        val argsArray = arrayOf("5x5", "(3,3)", "(-5,3)")
+        val output = parser.parse(argsArray)
+        assertEquals(output, IArgsParser.Output.PointsOutOfBoundsError)
     }
 
 }

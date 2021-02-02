@@ -12,6 +12,7 @@ interface IArgsParser {
         object EmptyError : Output()
         object GridError : Output()
         object PointsError : Output()
+        object PointsOutOfBoundsError : Output()
     }
 
 }

@@ -14,6 +14,12 @@ class ArgsParser : IArgsParser {
             .map { parsePointString(it) }
         if (parsedPoints.contains(null)) return IArgsParser.Output.PointsError
 
+        val nonNullablePoints = parsedPoints.filterNotNull()
+        val anyPointsOutOfBounds = nonNullablePoints.any {
+            it.x < 0 || it.y < 0 || it.x > grid.width || it.y > grid.height
+        }
+        if (anyPointsOutOfBounds) return IArgsParser.Output.PointsOutOfBoundsError
+
         return IArgsParser.Output.Success(grid, parsedPoints.filterNotNull())
     }
 

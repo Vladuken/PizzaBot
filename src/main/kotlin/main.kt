@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
         is IArgsParser.Output.EmptyError -> "Please provide arguments"
         is IArgsParser.Output.GridError -> "Please provide correct Grid. Example: \"5x5 (3,2) (5,1)\""
         is IArgsParser.Output.PointsError -> "Please provide correct Points. Example: \"5x5 (3,2) (5,1)\""
+        is IArgsParser.Output.PointsOutOfBoundsError -> "Some points are out of bounds. Please provide points that are inside of provided Grid."
     }
 
     println(resultMessage)

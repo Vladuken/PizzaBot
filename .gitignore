@@ -25,3 +25,4 @@ hs_err_pid*
 build/*
 #Mac directory file
 .DS_Store
+.gradle
